@@ -42,6 +42,10 @@
       border-radius: 8px;
       margin-bottom: 40px;
     }
+
+    .footer-logo-wrapper {
+      margin-top: 40px;
+    }
     
     .footer-logo {
       margin-top: 40px;
@@ -112,15 +116,15 @@
       Thank you for your interest. We have received notice of your request and
       will reach out shortly via email to connect you with the Sponsor.
     </div>
-    <img src="logo.png" alt="Logo" class="footer-logo" />
+    <div class="footer-logo-wrapper">
+      <img src="logo.jpg" alt="Logo" class="footer-logo" />
+    </div>
   </div>
 
   <script>
-    // --- Capture UID from URL ---
     const urlParams = new URLSearchParams(window.location.search);
     const uid = urlParams.get('uid') || 'unknown';
 
-    // --- Button click behavior ---
     const button = document.getElementById('requestBtn');
     const subtext = document.getElementById('subtext');
     button.addEventListener('click', () => {
@@ -146,5 +150,6 @@
 
 
 </html>
+
 
 
