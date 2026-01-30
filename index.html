@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,13 +10,18 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PRP2GG5E0"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-8PRP2GG5E0'); //
   </script>
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, sans-serif;
@@ -27,6 +33,7 @@
       min-height: 100vh;
       padding: 20px;
     }
+
     .container {
       max-width: 800px;
       width: 100%;
@@ -36,6 +43,7 @@
       padding: 60px 40px;
       text-align: center;
     }
+
     .hero-image {
       width: 100%;
       max-height: 400px;
@@ -43,11 +51,13 @@
       border-radius: 8px;
       margin-bottom: 40px;
     }
+
     h1 {
       font-size: 28px;
       font-weight: 600;
       margin-bottom: 30px;
     }
+
     .cta-button {
       display: inline-block;
       padding: 14px 32px;
@@ -55,14 +65,19 @@
       font-weight: 600;
       text-transform: uppercase;
       color: #ffffff;
-      background-color: #3975bb; /* updated blue */
+      background-color: #3975bb;
+      /* updated blue */
       border-radius: 6px;
       text-decoration: none;
       cursor: pointer;
       transition: background-color 0.2s ease;
       border: none;
     }
-    .cta-button:hover { background-color: #2e5c97; }
+
+    .cta-button:hover {
+      background-color: #2e5c97;
+    }
+
     .subtext {
       margin-top: 20px;
       font-size: 14px;
@@ -71,18 +86,26 @@
       margin-left: auto;
       margin-right: auto;
       line-height: 1.5;
-      display: none; /* initially hidden */
+      display: none;
+      /* initially hidden */
     }
+
     @media (max-width: 768px) {
-      .container { padding: 40px 20px; }
-      h1 { font-size: 22px; }
+      .container {
+        padding: 40px 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <img src="main/web-hero.jpg"
-         alt="Hero Image" class="hero-image" />
+    <img src="web-hero.jpg"
+      alt="Hero Image" class="hero-image" />
     <h1>Initiate NDA Process - 21 Hickory</h1>
 
     <button class="cta-button" id="requestBtn">Request Access</button>
@@ -106,18 +129,25 @@
     // --- Button click behavior ---
     const button = document.getElementById('requestBtn');
     const subtext = document.getElementById('subtext');
-
     button.addEventListener('click', () => {
-      // Hide button, show text
       button.style.display = 'none';
       subtext.style.display = 'block';
-
-      // Send button click event with UID
-      gtag('event', 'request_access_clicked', {
-        'uid': uid
+      fetch('APPSCRIPT_WEBHOOK_URL', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          event: 'button_click',
+          page: window.location.href,
+          userAgent: navigator.userAgent,
+          uid: uid
+        })
       });
+
     });
   </script>
 </body>
-</html>
 
+</html>
