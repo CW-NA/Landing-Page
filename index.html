@@ -4,14 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>21 Hickory Landing Page</title>
-  <style>
-    /* Reset some default styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8PRP2GG5E0'); //
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, sans-serif;
@@ -23,7 +27,6 @@
       min-height: 100vh;
       padding: 20px;
     }
-
     .container {
       max-width: 800px;
       width: 100%;
@@ -33,8 +36,6 @@
       padding: 60px 40px;
       text-align: center;
     }
-
-    /* Hero image */
     .hero-image {
       width: 100%;
       max-height: 400px;
@@ -42,32 +43,26 @@
       border-radius: 8px;
       margin-bottom: 40px;
     }
-
     h1 {
       font-size: 28px;
       font-weight: 600;
       margin-bottom: 30px;
     }
-
-  .cta-button {
-    display: inline-block;
-    padding: 14px 32px;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: #ffffff;
-    background-color: #3975bb; /* updated to blue */
-    border-radius: 6px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    border: none;
-  }
-
-  .cta-button:hover {
-    background-color: #2e5c97; /* slightly darker blue on hover */
-  }
-
+    .cta-button {
+      display: inline-block;
+      padding: 14px 32px;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #ffffff;
+      background-color: #3975bb; /* updated blue */
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      border: none;
+    }
+    .cta-button:hover { background-color: #2e5c97; }
     .subtext {
       margin-top: 20px;
       font-size: 14px;
@@ -76,28 +71,18 @@
       margin-left: auto;
       margin-right: auto;
       line-height: 1.5;
-      display: none; /* Hide initially */
+      display: none; /* initially hidden */
     }
-
     @media (max-width: 768px) {
-      .container {
-        padding: 40px 20px;
-      }
-      h1 {
-        font-size: 22px;
-      }
+      .container { padding: 40px 20px; }
+      h1 { font-size: 22px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Hero Image -->
-    <img
-      src="https://onecap.cushmanwakefield.com/vforcesite/sfc/servlet.shepherd/version/download/068Pq00000eoc7y"
-      alt="Hero Image"
-      class="hero-image"
-    />
-
+    <img src="https://onecap.cushmanwakefield.com/vforcesite/sfc/servlet.shepherd/version/download/068Pq00000eoc7y"
+         alt="Hero Image" class="hero-image" />
     <h1>Initiate NDA Process - 21 Hickory</h1>
 
     <button class="cta-button" id="requestBtn">Request Access</button>
@@ -109,16 +94,28 @@
   </div>
 
   <script>
-    // Grab elements
+    // --- Capture UID from URL ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const uid = urlParams.get('uid') || 'unknown';
+
+    // --- Track page view with UID as custom parameter ---
+    gtag('event', 'page_view', {
+      'uid': uid
+    });
+
+    // --- Button click behavior ---
     const button = document.getElementById('requestBtn');
     const subtext = document.getElementById('subtext');
 
-    // Add click event
     button.addEventListener('click', () => {
-      // Hide the button
+      // Hide button, show text
       button.style.display = 'none';
-      // Show the subtext
       subtext.style.display = 'block';
+
+      // Send button click event with UID
+      gtag('event', 'request_access_clicked', {
+        'uid': uid
+      });
     });
   </script>
 </body>
