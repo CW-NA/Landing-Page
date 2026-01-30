@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>21 Hickory Landing Page</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      background-color: #f9fafb;
+      color: #1f2933;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    /* Hero image */
+    .hero-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 14px 32px;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #ffffff;
+      background-color: #111827;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      border: none;
+    }
+
+    .cta-button:hover {
+      background-color: #374151;
+    }
+
+    .subtext {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #6b7280;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 40px 20px;
+      }
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Hero Image -->
+    <img
+      src="https://via.placeholder.com/800x400?text=Hero+Image+Placeholder"
+      alt="Hero Image"
+      class="hero-image"
+    />
+
+    <h1>21 Hickory Landing Page</h1>
+
+    <button class="cta-button">Request Access</button>
+
+    <div class="subtext">
+      Thank you for your interest. We have received notice of your request and
+      will reach out shortly to initiate the NDA process.
+    </div>
+  </div>
+</body>
+</html>
