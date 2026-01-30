@@ -49,24 +49,24 @@
       margin-bottom: 30px;
     }
 
-    .cta-button {
-      display: inline-block;
-      padding: 14px 32px;
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: #ffffff;
-      background-color: #111827;
-      border-radius: 6px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-      border: none;
-    }
+  .cta-button {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #3975bb; /* updated to blue */
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border: none;
+  }
 
-    .cta-button:hover {
-      background-color: #374151;
-    }
+  .cta-button:hover {
+    background-color: #2e5c97; /* slightly darker blue on hover */
+  }
 
     .subtext {
       margin-top: 20px;
@@ -76,6 +76,7 @@
       margin-left: auto;
       margin-right: auto;
       line-height: 1.5;
+      display: none; /* Hide initially */
     }
 
     @media (max-width: 768px) {
@@ -92,19 +93,33 @@
   <div class="container">
     <!-- Hero Image -->
     <img
-      src="https://via.placeholder.com/800x400?text=Hero+Image+Placeholder"
+      src="https://onecap.cushmanwakefield.com/vforcesite/sfc/servlet.shepherd/version/download/068Pq00000eoc7y"
       alt="Hero Image"
       class="hero-image"
     />
 
-    <h1>21 Hickory Landing Page</h1>
+    <h1>Initiate NDA Process - 21 Hickory</h1>
 
-    <button class="cta-button">Request Access</button>
+    <button class="cta-button" id="requestBtn">Request Access</button>
 
-    <div class="subtext">
+    <div class="subtext" id="subtext">
       Thank you for your interest. We have received notice of your request and
-      will reach out shortly to initiate the NDA process.
+      will reach out shortly via email to connect you with the Sponsor.
     </div>
   </div>
+
+  <script>
+    // Grab elements
+    const button = document.getElementById('requestBtn');
+    const subtext = document.getElementById('subtext');
+
+    // Add click event
+    button.addEventListener('click', () => {
+      // Hide the button
+      button.style.display = 'none';
+      // Show the subtext
+      subtext.style.display = 'block';
+    });
+  </script>
 </body>
 </html>
