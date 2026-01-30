@@ -112,11 +112,6 @@
     const urlParams = new URLSearchParams(window.location.search);
     const uid = urlParams.get('uid') || 'unknown';
 
-    // --- Track page view with UID as custom parameter ---
-    gtag('event', 'page_view', {
-      'uid': uid
-    });
-
     // --- Button click behavior ---
     const button = document.getElementById('requestBtn');
     const subtext = document.getElementById('subtext');
@@ -143,3 +138,4 @@
 
 
 </html>
+
